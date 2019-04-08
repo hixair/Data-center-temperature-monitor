@@ -16,14 +16,13 @@ Goals of this project :
 - Log the temperatures and graph these to monitor trends overtime.
 - Send alerts when a level is reached.
 
-## The controller
+## Connecting the sensors to the controller
 
 I initially prototyped the temperature monitor using the typical breadboard :
 
 ![breadboard](img/IMG_2920.JPG "breadboard")
 
-
-## Connecting the sensors
+![breadboard2](img/breadboard.png "breadboard2")
 
 I used mini-XLR connectors as they hav 3 pins and a locking lever. 
 The DS18B20 plug on a one wire bus, it means that they are all connected to the same wire and you can multiply "branches" of you tree as much as you need (as long as you power these accordingly).
@@ -35,7 +34,7 @@ I used a old epson ribbon printer cartridge to group 3 female plugs at the end o
 Each sensor has an address and you can use the code from the DS18B20 Sensor Address.c sketch to figure them out. Upload the sketch to the esp32, plug one of the sensor, switch on, read the value in the serial monitor, switch off, plug another sensor, ...
 
 Label your sensors in case you want to move them or reuse them.
-![breadboard](img/breadboard.png "breadboard")
+
 
 
 ## The Case
