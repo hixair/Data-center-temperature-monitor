@@ -23,7 +23,7 @@ I initially prototyped the temperature monitor using the typical breadboard :
 ![breadboard2](img/breadboard.png "breadboard2")
 
 I spliced the sensors to Cat5 network cables and ended with mini-XLR connectors (they have 3 pins and a locking lever). 
-The DS18B20 is accessed through a one wire bus, it means that they are all connected to the same wire and you can add some sensors as long as you power them accordingly.
+The DS18B20 is accessed through a one wire bus, it means that they are all connected to the same wire and you can add sensors as long as you power them accordingly.
 
 
 ![The Wire](img/The_Wire.jpg "The Wire")
@@ -56,14 +56,14 @@ Final case :
 
 ## The Code
 
-The code is pretty straightforward, I used a lot of existing bits and stiched everything together. It probably lacks some checkings when errors occur while posting that i will go into. 
+The code is pretty straightforward, I used a lot of existing bits and stiched everything together. It probably lacks some error checkings while posting. 
 The SSL part of the webhook gave me some headhaches (Thanks you Alex for your help !).
 Make sure you include all the required librairies !
 
 ## Posting the temperature values
 
 We are using Inegromat for several other projects and it is really cool to use.
-Values are read by the controller and then posted to Integromat via a WebHook. Integromat stores the values in a Google sheet (we may move this to a logstash/kibana).
+Values are read by the controller and then posted to Integromat via a WebHook. Integromat then stores the values in a Google sheet (we may move this to a logstash/kibana).
 
 ![graph](img/graph.png "graph")
 
