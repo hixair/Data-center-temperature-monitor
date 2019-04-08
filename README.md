@@ -1,6 +1,4 @@
-WIP (2019-04-08)
-
-# Data-center-temperature-monitor
+# A Data Center Temperature Monitor
 A temperature monitor based on and ESP32 and DS18B20 sensors, that can be mounted in a server rack.
 
 
@@ -24,12 +22,13 @@ I initially prototyped the temperature monitor using the typical breadboard :
 
 ![breadboard2](img/breadboard.png "breadboard2")
 
-To end the Cat5 network cable, I used some mini-XLR connectors (they hav 3 pins and a locking lever). 
-The DS18B20 use a one wire bus, it means that they are all connected to the same wire and you can add some sensors as long as you power them accordingly.
+I spliced the sensors to Cat5 network cable and ended with mini-XLR connectors (they have 3 pins and a locking lever). 
+The DS18B20 is accessed through a one wire bus, it means that they are all connected to the same wire and you can add some sensors as long as you power them accordingly.
+
 
 ![The Wire](img/The_Wire.jpg "The Wire")
+*I used a old epson ribbon printer cartridge to group 3 female plugs at the end of the main wire. I could go with another group of sensors coming from one of these plugs.*
 
-I used a old epson ribbon printer cartridge to group 3 female plugs at the end of the main wire. I could go with another group of sensors coming from one of these plugs.
 
 Each sensor has an address and you can use the code from the `DS18B20 Sensor Address.c` sketch to figure them out. Upload the sketch to the esp32, plug one of the sensor, switch on, read the value in the serial monitor, switch off, plug another sensor, ...
 
@@ -47,9 +46,8 @@ I messed up some dimentions and had to go back to f360 to fix the problems :
 
 ![f360](img/f360.png "f360")
 
-(3D printing is awesome)
-
 ![3D printing is awesome](img/IMG_0819.JPG "3D printing is awesome")
+*(3D printing is awesome)*
 
 Final case :
 
@@ -58,14 +56,14 @@ Final case :
 
 ## The Code
 
-The code is pretty straightforward, i used a lot of existing bits and stiched everything together. It probably lacks some checkings when erros occurs while posting. 
-The SSL part of the webhook gave me some headhaches and fortunateluy i had help from a developer colleague.
-Make sure you include all the required librairies.
+The code is pretty straightforward, I used a lot of existing bits and stiched everything together. It probably lacks some checkings when errors occur while posting that i will go into. 
+The SSL part of the webhook gave me some headhaches (Thanks Alex for your help !).
+Make sure you include all the required librairies !
 
 ## Posting the temperature values
 
 We are using Inegromat for several other projects and it is really cool to use.
-Values are read by the controller and then posted to Integromat via a WebHook. Integromat stores the values in a Google sheet (we plan on moving this to a logstash/kibana soon).
+Values are read by the controller and then posted to Integromat via a WebHook. Integromat stores the values in a Google sheet (we may move this to a logstash/kibana).
 
 ![Integromat](img/Integromat.png "Integromat")
 
@@ -73,5 +71,8 @@ If one of tha values goes beyond a set theshold, an alert is send to a Slack Cha
 
 ![slack_alert](img/slack_alert.png "slack_alert")
 
+## Final considerations
+Wifi ... Well ... is ... Wifi ...
+I will be looking into an ethernet shield for the ESP32.
 
 
