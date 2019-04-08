@@ -1,4 +1,4 @@
-WIP
+WIP (2019-04-08)
 
 # Data-center-temperature-monitor
 A temperature monitor based on and ESP32 and DS18B20 sensors, that can be mounted in a server rack.
@@ -19,4 +19,11 @@ I initially prototyped the temperature monitor using the typical breadboard :
 
 ![breadboard](img/IMG_2920.JPG "breadboard")
 
+Connecting the sensors
 
+I used mini-XLR connectors as they hav 3 pins and a locking lever. 
+The DS18B20 plug on a one wire bus, it means that they are all connected to the same wire and you can multiply "branches" of you tree as much as you need (as long as you power these accordingly).
+
+![The Wire](img/The_Wire.jpg "TheWire")
+
+I used a old epson ribbon printer cartridge to group 3 female plugs at the end of the main wire. I could go with another group of sensors coming from one of these plugs.
