@@ -67,7 +67,7 @@ Make sure you include all the required librairies.
 We are using Inegromat for several other projects and it is really cool to use.
 Values are read by the controller and then posted to Integromat via a WebHook. Integromat stores the values in a Google sheet (we plan on moving this to a logstash/kibana soon).
 
-![integromat](img/integromat.png "integromat")
+![Integromat](img/Integromat.png "Integromat")
 
 If one of tha values goes beyond a set theshold, an alert is send to a Slack Channel.
 
