@@ -39,7 +39,7 @@ Label your sensors in case you want to move them or reuse them.
 
 ## The Case
 
-The first interation of the case revealed that wifi does not do well when the antenna of the controller is situated between 2 server blades (and the access to the usb plug was really bad) :
+The first interation of the case revealed that wifi does not do well when the antenna of the controller is placed between 2 server blades (and the access to the usb plug was really bad) :
 
 ![first case](img/IMG_1958.JPG "first case")
 
@@ -55,10 +55,23 @@ Final case :
 
 ![Cold Case](img/Cold_Case.jpg "Cold Case")
 
+
 ## The Code
 
 The code is pretty straightforward, i used a lot of existing bits and stiched everything together. It probably lacks some checkings when erros occurs while posting. 
-The SSL part of the webhook was a hard part and fortunateluy i had help from a developer colleague.
+The SSL part of the webhook gave me some headhaches and fortunateluy i had help from a developer colleague.
 Make sure you include all the required librairies.
+
+## Posting the temperature values
+
+We are using Inegromat for several other projects and it is really cool to use.
+Values are read by the controller and then posted to Integromat via a WebHook. Integromat stores the values in a Google sheet (we plan on moving this to a logstash/kibana soon).
+
+![integromat](img/integromat.png "integromat")
+
+If one of tha values goes beyond a set theshold, an alert is send to a Slack Channel.
+
+![slack_alert](img/slack_alert.png "slack_alert")
+
 
 
