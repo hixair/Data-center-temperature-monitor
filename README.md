@@ -1,4 +1,4 @@
-**UPDATE : I added code for Olimex ESP32 with ethernet port as wifi was way too unreliable. I will update the case design as well.**
+*UPDATE : I added code for Olimex ESP32 with ethernet port as wifi was way too unreliable. I will update the case design as well.*
 
 
 # A Data Center Temperature Monitor
