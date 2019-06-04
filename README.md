@@ -77,7 +77,8 @@ If one of tha values goes beyond a set theshold, an alert is send to a Slack Cha
 ![slack_alert](img/slack_alert.png "slack_alert")
 
 ## Final considerations
-Wifi ... Well ... is ... Wifi ...
-I will probably be looking into an ethernet shield for the ESP32 soon.
+~Wifi ... Well ... is ... Wifi ...
+I will probably be looking into an ethernet shield for the ESP32 soon.~
+Done ! i uploaded the nex code for olimex ESP32 ethernet.
 
 
