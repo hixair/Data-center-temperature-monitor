@@ -1,4 +1,4 @@
-*UPDATE : I added code for Olimex ESP32 with ethernet port as wifi was way too unreliable. I will update the case design as well.*
+*UPDATE : I added code for Olimex ESP32 (https://github.com/OLIMEX/ESP32-POE) with ethernet port as wifi was way too unreliable. I will update the case design as well.*
 
 
 # A Data Center Temperature Monitor
@@ -79,6 +79,7 @@ If one of tha values goes beyond a set theshold, an alert is send to a Slack Cha
 ## Final considerations
 ~Wifi ... Well ... is ... Wifi ...
 I will probably be looking into an ethernet shield for the ESP32 soon.~
-Done ! i uploaded the nex code for olimex ESP32 ethernet.
 
+Move to an Olimex ESP32-POE is done ! I uploaded the new code and will uplaod the case files as soon as it is prfect.
+https://github.com/OLIMEX/ESP32-POE
 
