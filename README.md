@@ -23,12 +23,12 @@ I initially prototyped the temperature monitor using the typical breadboard :
 
 ![breadboard2](img/breadboard.png "breadboard2")
 
-I spliced the sensors to Cat5 network cables and ended with mini-XLR connectors (they have 3 pins and a locking lever). 
-The DS18B20 is accessed through a one wire bus, it means that they are all connected to the same wire and you can add sensors as long as you power them accordingly.
+I spliced the sensors to Cat5 network cables and ended cables with mini-XLR connectors (these are pretty cool as they have 3 pins and a locking lever). 
+The DS18B20 is accessed through a one wire bus, it means that they are all connected to the same wire and you can add many sensors as long as you power them accordingly.
 
 
 ![The Wire](img/The_Wire.jpg "The Wire")
-*I used a old epson ribbon printer cartridge to group 3 female plugs at the end of the main wire. Now I could easily go with another group of sensors going out of one of these plugs ...*
+*I used a old epson ribbon printer cartridge as a case for 3 female plugs. These are connected to the main wire going to the controller. I could easily go with many other sensors plugging in one of these plugs ...*
 
 
 Each sensor has an address and you can use the code from the `DS18B20 Sensor Address.c` sketch to figure them out. Upload the sketch to the esp32, plug one of the sensor, switch on, read the value in the serial monitor, switch off, plug another sensor, ...
