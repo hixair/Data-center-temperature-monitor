@@ -56,6 +56,9 @@ Final case :
 
 ![Cold Case](img/Cold_Case.jpg "Cold Case")
 
+Updated case for the Olimex ESP32-POE :
+
+![ESP32-POE-Case](img/IMG_5555.JPG "ESP32-POE-Case")
 
 ## The Code
 
