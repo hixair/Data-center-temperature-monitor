@@ -1,0 +1,7 @@
+{
+    "port": "/dev/cu.usbserial-1410",
+    "board": "esp32:esp32:esp32-poe",
+    "configuration": "FlashFreq=80,UploadSpeed=115200",
+    "sketch": "temp-sensor.ino",
+    "output": "build/"
+}

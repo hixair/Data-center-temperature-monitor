@@ -6,10 +6,15 @@
 #include <DallasTemperature.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include <time.h>
+#include <Time.h>
+#include <TimeLib.h>
+#include "ntp.h"
 
 // Delay between temperature checks (in minutes)
-#define CHECK_INTERVAL 15
+#define CHECK_INTERVAL 5
+
+#define NTP_SERVER "pool.ntp.org"
+#define NTP_SYNC_INTERVAL 60
 
 // Setup a oneWire instance to communicate with a OneWire device on GPIO 15
 OneWire oneWire(0);
@@ -22,8 +27,6 @@ DeviceAddress sensor_ac      = { 0x28, 0xFF, 0x9B, 0x1A, 0xA2, 0x16, 0x03, 0xB1 
 DeviceAddress sensor_ambient = { 0x28, 0xFF, 0x01, 0xE4, 0xA2, 0x16, 0x03, 0xDF };
 
 bool eth_connected = false;
-
-const char *ntpServer = "pool.ntp.org";
 
 static const char integromat_root_ca[] PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
@@ -85,7 +88,7 @@ void WiFiEvent(WiFiEvent_t event)
       Serial.print(ETH.linkSpeed());
       Serial.println("Mbps");
       eth_connected = true;
-      configTime(0, 0, ntpServer);
+      setupNTP(NTP_SERVER, NTP_SYNC_INTERVAL);
       break;
     case SYSTEM_EVENT_ETH_DISCONNECTED:
       Serial.println("ETH Disconnected");
@@ -138,19 +141,13 @@ void loop(void){
   Serial.print(sensors.getTempC(sensor_ambient));
   Serial.println("°C");
 
-  struct tm timeinfo;
-  if (!getLocalTime(&timeinfo)){
-    Serial.println("Failed to get time.");
-    return;
-  }
-
   char payload[200];
   snprintf(payload, sizeof(payload), "{\"date\":\"%04d-%02d-%02d %02d:%02d:%02d\",\"rack_temp\":%f,\"ac_temp\":%f,\"ambient_temp\":%f}",
-           timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday, timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec,
+           year(), month(), day(), hour(), minute(), second(),
            sensors.getTempC(sensor_rack), sensors.getTempC(sensor_ac), sensors.getTempC(sensor_ambient));
 
   HTTPClient http;
-  http.begin("https://hook.integromat.com/yourwebhookURL", integromat_root_ca);
+  http.begin("https://hook.integromat.com/0hm2cmrmy4fus0t2tc8lxnxegu2f5yq5", integromat_root_ca);
   http.addHeader("Content-Type", "application/json");
   http.POST(payload);
 
