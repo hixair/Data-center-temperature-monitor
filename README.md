@@ -11,7 +11,7 @@ I know, yet another temperature monitor ...
 This is my first complete project that involves CAD design, 3D printing, electronics prototyping, C code (I am not a developer ;) and webhooks.
 
 Goals of this project : 
-- Getting temperatures from the 3 sensors (AC, back of the cabinets and ambient) 
+- Getting temperatures from the 3 sensors (AC, back of the server racks and ambient) 
 - Log the temperatures and build a graph to monitor trends overtime.
 - Send live alerts when a temperature level is reached.
 
